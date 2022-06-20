@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Quote Generator</title>
+<style>
+        /* basic styles of the color button */
+        th{
+                width: 30px;
+                height: 30px;
+                border: solid 3px #505050;
+                cursor: pointer;
+        }
+        /* set color of the green button*/
+        .green{ background-color: green;        }
+        /* set color of the yellow button*/
+        .yellow{ background-color: yellow;      }
+        /* set color of the blue button*/
+        .blue{ background-color: blue;  }
+        /* set color of the orange button*/
+        .orange{ background-color: orange;      }
+        /* styles of the div "quote" */
+        .quote{ 
+                border: solid 4px green; /* div border with color */
+                float: left;
+                width: 75%;
+                background-color: #F5D737; /* div  background color*/
+                color: red; /* font color of the quote */
+                text-align: center;
+                padding: 20px;
+        }
+        .content{
+                margin: 100px auto;width: 800px;min-height: 300px;
+        }
+       
+        .last {
+            background-color: grey;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        #inputText {
+
+            margin: 20px;
+            width: 90%;
+            height: 500px;
+            background-color: white;
+            border-style: dashed;
+            border-color: green;
+            border-width: 3px;
+
+
+        }
+
+        input[type=button] {
+            background-color: rgb(223, 211, 211);
+            margin: 25px;
+            height: 30px;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: medium;
+        }
+    
+</style>
+<script>
+        //on body onload call this function
+        displayQuote = function(){
+                // create an arry for quote with 10 quotes
+                const quote = [
+                        "“The purpose of our lives is to be happy.” — Dalai Lama",
+                        "“Life is what happens when you’re busy making other plans.” — John Lennon",
+                        "“Get busy living or get busy dying.” — Stephen King",
+                        "“You only live once, but if you do it right, once is enough.” — Mae West",
+                        "“Never let the fear of striking out keep you from playing the game.”– Babe Ruth",
+                        "“Not how long, but how well you have lived is the main thing.” — Seneca",
+                        "“In order to write about life first you must live it.”– Ernest Hemingway",
+                        "“The unexamined life is not worth living.” — Socrates",
+                        "“Turn your wounds into wisdom.” — Oprah Winfrey",
+                        "“I like criticism. It makes you strong.” — LeBron James"
+                ];
+                // usinh math function pick the random quote from the array
+                var randomItem = quote[Math.floor(Math.random()*quote.length)];
+                // the selected quote displayed on the div "quote"
+                document.getElementById("quote").innerHTML = randomItem;
+        }
+        //finction for change the styles of "quote"
+        // on click on the each color button call this function
+        changeColor = function(colorC){
+                // if click on the button "green" do the following changes
+                if(colorC == 'green'){
+                        // change the backgroundColor same as the color button
+                        document.getElementById("quote").style.backgroundColor = colorC;
+                        // change the borderColor to "red"
+                        document.getElementById("quote").style.borderColor = "red";
+                        // change the font color to "white"
+                        document.getElementById("quote").style.color = "white";
+                        // change the fontFamily to "Impact"
+                        document.getElementById("quote").style.fontFamily = "Impact";
+                        // change the fontSize to "12px"
+                        document.getElementById("quote").style.fontSize = "12px"; 
+                // if click on the button "yellow" do the following changes
+                }else if(colorC == 'yellow'){
+                        // change the backgroundColor same as the color button
+                        document.getElementById("quote").style.backgroundColor = colorC;
+                        // change the borderColor to "blue"
+                        document.getElementById("quote").style.borderColor = "blue";
+                        // change the font color to "black"
+                        document.getElementById("quote").style.color = "black";
+                        // change the fontFamily to "cursive"
+                        document.getElementById("quote").style.fontFamily = "cursive";
+                        // change the fontSize to "14px"
+                        document.getElementById("quote").style.fontSize = "14px"; 
+                // if click on the button "blue" do the following changes
+                }else if(colorC == 'blue'){
+                        // change the backgroundColor same as the color button
+                        document.getElementById("quote").style.backgroundColor = colorC;
+                        // change the borderColor to "yellow"
+                        document.getElementById("quote").style.borderColor = "yellow";
+                        // change the font color to "orange"
+                        document.getElementById("quote").style.color = "orange";
+                        // change the fontFamily to "Lucida Console"
+                        document.getElementById("quote").style.fontFamily = "Lucida Console";
+                        // change the fontSize to "16px"
+                        document.getElementById("quote").style.fontSize = "16px"; 
+                // if click on the button "orange" do the following changes
+                }else if(colorC == 'orange'){
+                        // change the backgroundColor same as the color button
+                        document.getElementById("quote").style.backgroundColor = colorC;
+                        // change the borderColor to "darkblue"
+                        document.getElementById("quote").style.borderColor = "darkblue";
+                        // change the font color to "blue"
+                        document.getElementById("quote").style.color = "blue";
+                        // change the fontFamily to "verdana"
+                        document.getElementById("quote").style.fontFamily = "verdana";
+                        // change the fontSize to "18px"
+                        document.getElementById("quote").style.fontSize = "18px"; 
+                }
+        }
+</script>
+
+</head>
+<!-- on body onload function call the "displayQuote()" function
+         this function displays the random quote from the array
+-->
+<body onLoad="return displayQuote()">
+<div class="content">
+        <div class="quote" id="quote">
+                <!-- div for dispaying the quote-->
+        </div>
+        <table>
+                <!-- four color button. Styles of each buttons defined in the css styles
+                         on each button click call the function "changeColor()" and pass coresponding color
+                -->
+                <tr>
+                        <!-- green button-->
+                        <th class="green" onClick="changeColor('green')">&nbsp;</th>
+                        <!-- yellow button-->
+                        <th class="yellow" onClick="changeColor('yellow')">&nbsp;</th>
+                </tr>
+                <tr>
+                        <!-- blue button-->
+                        <th class="blue" onClick="changeColor('blue')">&nbsp;</th>
+                        <!-- orange button-->
+                        <th class="orange" onClick="changeColor('orange')">&nbsp;</th>
+                </tr>
+        </table>
+</div>
+<table width="50%" border="0" align="center">
+        <tr>
+          <td width="13%">Input Series of Number:</td>
+          <td width="29%"><input name="box1" type="text" id="box1" value="12,12,22,9,1,20" /></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Max :</td>
+          <td><div id="max"> </div></td>
+        </tr>
+        <tr>
+          <td>Min :</td>
+          <td><div id="min"> </div></td>
+        </tr>
+        <tr>
+          <td>Sum  :</td>
+          <td><div id="sum"> </div></td>
+        </tr>
+        <tr>
+          <td>Average :</td>
+          <td><div id="avg"> </div></td>
+        </tr>
+        <tr>
+          <td>Reverse Order :</td>
+          <td><div id="reverse"> </div></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+  <button style="margin-left: 30%;" onclick="calculate()">calculate</button>
+  <div class="last">
+  <h1>Magic!</h1>
+  <textarea id="inputText"></textarea>
+  <br />
+
+  <!-- defining the buttons -->
+  <input type="button" value="Clear It" id="clearIt" onclick="clearText()">
+  <input type="button" value="Capitalize" id="capitalize" onclick="toggleCase()">
+  <input type="button" value="Sort" id="sort" onclick="sortContents()">
+  <input type="button" value="Reverse" id="revrse" onclick="reverseContent()">
+  <input type="button" value="Strip Blank" id="stripBlank" onclick="stripContents()">
+  <input type="button" value="Add Number" id="addNumber" onclick="addNumber()">
+  <input type="button" value="Shuffle" id="shuffle" onclick="shuffleTheContents()">
+</div>
+  <script>function calculate() {
+      var values = document.getElementById('box1').value.split(/,/g);
+      var sum = values.reduce(function(a, b) { return parseInt(a) + parseInt(b); });
+      document.querySelector('#max').innerHTML = values.max();
+      document.querySelector('#min').innerHTML = values.min();
+      document.querySelector('#sum').innerHTML = sum;
+      document.querySelector('#avg').innerHTML = sum / values.length;
+      document.querySelector('#reverse').innerHTML = values.reverse().join(',');
+    }
+    
+    Array.prototype.max = function() {
+      return Math.max.apply(null, this);
+    };
+    
+    Array.prototype.min = function() {
+      return Math.min.apply(null, this);
+    };</script>
+    <div style="margin-left:20% ;]">
+    <h2>Weight Converter</h2>
+    <p>Type a value in the Kilograms field to convert the value to Pounds:</p>
+    
+    <p>
+      <label>Kilograms</label>
+      <input id="inputKilograms" type="number" placeholder="Kilograms" oninput="weightConverterr(this.value)" onchange="weightConverter(this.value)">
+    </p>
+    <p>Pounds: <span id="outputPounds"></span></p>
+    <p>
+      <label>Pounds</label>
+      <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+    </p>
+    <p>Kilograms: <span id="outputKilograms"></span></p>
+        </div>
+    
+    <script>
+    function weightConverterr(valNumm) {
+      document.getElementById("outputPounds").innerHTML=valNumm*2.2046;
+    }
+    function weightConverter(valNum) {
+      document.getElementById("outputKilograms").innerHTML=valNum/2.2046;
+    }
+    </script>
+    <script>
+        function clearText() {
+            // defining the function to remove the content from the textarea
+            document.getElementById("inputText").value = "";
+        }
+        function toggleCase() {
+            // function to toggle the case of the string
+            let str = document.getElementById("inputText").value.split("");
+
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] >= 'A' && str[i] <= 'Z')
+                    str[i] = String.fromCharCode(str[i].charCodeAt(0) + 'a'.charCodeAt(0) - 'A'.charCodeAt(0));
+                else if (str[i] >= 'a' && str[i] <= 'z')
+                    str[i] = String.fromCharCode(str[i].charCodeAt(0) + 'A'.charCodeAt(0) - 'a'.charCodeAt(0));
+            }
+
+            // write the toggle content to the textbox
+            document.getElementById("inputText").value = (str).join("");
+        }
+
+        // defining the function to sort the contents
+        function sortContents() {
+
+            let str = document.getElementById("inputText").value.split("\n");
+            str.sort();
+            let outputString = "";
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === "") {
+                    continue;
+                }
+                outputString += str[i] + "\n";
+            }
+            // write the sorted content to the textbox
+            document.getElementById("inputText").value = outputString;
+
+        }
+
+        // defining the method to revrse the strings
+        function reverseContent() {
+            let str = document.getElementById("inputText").value.split("\n");
+
+            for (let i = 0; i < str.length; i++) {
+                str[i] = str[i].split("").reverse().join("");
+            }
+            // write the reversed content to the textbox
+            document.getElementById("inputText").value = (str).join("\n");
+        }
+
+        // defining the function to strip the contents
+        function stripContents() {
+
+            let str = document.getElementById("inputText").value.split("\n");
+
+            let outputString = "";
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === "") {
+                    continue;
+                }
+                outputString += str[i].trim() + "\n";
+            }
+            // write the sorted content to the textbox
+            document.getElementById("inputText").value = outputString;
+
+        }
+
+        // defining the function to add the numbers to the contents
+        function addNumber() {
+
+            let str = document.getElementById("inputText").value.split("\n");
+
+            let count = 1;
+            let outputString = "";
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === "") {
+                    outputString += "\n";
+
+                }
+                else {
+                    outputString += count + " " + str[i] + "\n";
+                    count += 1;
+                }
+            }
+            // write the sorted content to the textbox
+            document.getElementById("inputText").value = outputString;
+
+        }
+        // defining the function to shuffle the contents
+        function shuffleTheContents() {
+
+            let array = document.getElementById("inputText").value.split("\n");
+
+            
+                var currentIndex = array.length, temporaryValue, randomIndex;
+                while (0 !== currentIndex) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+              
+            // write the shuffled content to the textbox
+            document.getElementById("inputText").value = (array).join("\n");
+
+        }
+    </script>
+</body>
+</html>
